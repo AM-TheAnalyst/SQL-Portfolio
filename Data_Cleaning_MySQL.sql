@@ -1,5 +1,4 @@
 SELECT * FROM layoffs;
--- 	It's best practice to always try and create a copy of your raw data as back up. Work with new table.
 CREATE TABLE layoffs_staging LIKE layoffs;
 INSERT INTO layoffs_staging SELECT * FROM layoffs;
 SELECT *,ROW_NUMBER () OVER(PARTITION BY company,location,industry,total_laid_off,percentage_laid_off,`date`,stage,
